@@ -40,7 +40,6 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- Favicon -->
@@ -110,7 +109,7 @@
                                         </label>
                                     </div>
                                     <div class="field-wrap">
-                                        <input type="file"  name="fileImagen" required autocomplete="off">
+                                        <input type="file"  name="fileImagen" autocomplete="off">
                                         <label>Imagen</label>
                                     </div>
                                 </div>
@@ -137,16 +136,8 @@
                                             Unidad Medida<span class="req">*</span>
                                         </label>
                                     </div>
-                                    <div class="field-wrap">
-
-                                        <select name ="txtTipoMaterial" required >
-                                            <c:forEach var="tipoM" items ="${tipoMateriales}">
-                                                <option value="${tipoM.getCodigo()}">${tipoM.getNombre()}</option>
-                                            </c:forEach>
-                                        </select>
-                                        <label> 
-                                            Tipo Material*
-                                        </label>
+                                         <div class="field-wrap">
+                                        
                                     </div>
                                 </div>
                                 <input type="hidden" name="codigoM" value="${materialSeleccionado.getCodigoMaterial()}" >
@@ -186,10 +177,9 @@
                     <thead>
                         <tr>
                             <th scope="col">Nombre Material</th>
-                            <th scope="col">Tipo Material</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Precio M2</th>
-                            <th scope="col">Cantidad M"</th>
+                            <th scope="col">Cantidad M2</th>
                             <th scope="col">Unidad medida</th>
                             <th scope="col">Acciones</th>
                         </tr>
@@ -198,7 +188,6 @@
                         <c:forEach  var="dato" items="${materiales}">
                             <tr>
                                 <th scope="row">${dato.getNombre()}</th>
-                                <td>${dato.getTxtTipoMaterial()}</td>
                                 <td><img src="http://localhost/img/${dato.getRutaImagen()}"width="150" height="130"></td>
                                 <td>${dato.getPrecioMetroCuadrado()}</td>
                                 <td>${dato.getCantidadMetroCuadrado()}</td>

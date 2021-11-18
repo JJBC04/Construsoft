@@ -65,7 +65,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Nombre Material</th>
-                            <th scope="col">Tipo Material</th>
+                          
                             <th scope="col">Imagen</th>
                             <th scope="col">Precio</th>
                         </tr>   
@@ -75,7 +75,6 @@
                             <tr> 
 
                                 <td>${dato.getNombre()}</td>
-                                <td>${dato.getTxtTipoMaterial()}</td>
                                 <td><img src="http://localhost/img/${dato.getRutaImagen()}" width="150" height="130"></td>
                                 <td>${dato.getPrecioMetroCuadrado()}</td>
                             </tr>

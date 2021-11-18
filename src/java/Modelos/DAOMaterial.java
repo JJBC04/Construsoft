@@ -1,10 +1,6 @@
 package Modelos;
 
 import Config.Conexion;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -44,7 +39,7 @@ public class DAOMaterial {
                 material.setPrecioMetroCuadrado(rs.getInt("precio_metro_cuadrado"));
                 material.setCantidadMetroCuadrado(rs.getInt("cantidad_metro_cuadrado"));
                 material.setUnidadMedida(rs.getString("unidad_medida"));
-                material.setTxtTipoMaterial(rs.getString("tipo_material"));
+                //material.setTxtTipoMaterial(rs.getString("tipo_material"));
                 lista.add(material);
 
             }
@@ -75,9 +70,65 @@ public class DAOMaterial {
 
         }
         return material;
+
     }
 
-    /* public void listarImagen(int codigoMaterial, HttpServletResponse response) {
+    public int Agregar(DTOMaterial material) {
+        String sentencia = "CALL sp_InsertarMaterial(?,?,?,?,?)";
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sentencia);
+            ps.setString(1, material.getNombre());
+            ps.setString(2, material.getRutaImagen());
+            ps.setInt(3, material.getPrecioMetroCuadrado());
+            ps.setInt(4, material.getCantidadMetroCuadrado());
+            ps.setString(5, material.getUnidadMedida());
+            //ps.setInt(6, material.getTipoMaterial());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOMaterial.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return r;
+    }
+
+    public int Actualizar(DTOMaterial material) {
+        String sentencia = "CALL sp_ActualizarMaterial(?,?,?,?,?,?)";
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sentencia);
+            ps.setString(1, material.getNombre());
+            ps.setString(2, material.getRutaImagen());
+            ps.setInt(3, material.getPrecioMetroCuadrado());
+            ps.setInt(4, material.getCantidadMetroCuadrado());
+            ps.setString(5, material.getUnidadMedida());
+            //ps.setInt(6, material.getTipoMaterial());
+            ps.setInt(6, material.getCodigoMaterial());
+
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+
+    public void Eliminar(int codigoMaterial) {
+
+        String sql = "DELETE FROM tblmaterial WHERE codigo_material=" + codigoMaterial;
+        con = cn.Conexion();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+}
+
+/* public void listarImagen(int codigoMaterial, HttpServletResponse response) {
         String consulta = "SELECT * FROM tblmaterial WHERE codigo_material =" + codigoMaterial;
         InputStream inputStream = null;
         OutputStream outputStream = null;
@@ -107,62 +158,7 @@ public class DAOMaterial {
 
         }
 
-    }*/
-    public int Agregar(DTOMaterial material) {
-        String sentencia = "CALL sp_InsertarMaterial(?,?,?,?,?,?)";
-        try {
-            con = cn.Conexion();
-            ps = con.prepareStatement(sentencia);
-            ps.setString(1, material.getNombre());
-            ps.setString(2, material.getRutaImagen());
-            ps.setInt(3, material.getPrecioMetroCuadrado());
-            ps.setInt(4, material.getCantidadMetroCuadrado());
-            ps.setString(5, material.getUnidadMedida());
-            ps.setInt(6, material.getTipoMaterial());
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOMaterial.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return r;
-    }
-
-    public int Actualizar(DTOMaterial material) {
-        String sentencia = "UPDATE tblmaterial set nombre=?,ruta_imagen=?,precio_metro_cuadrado=?,cantidad_metro_cuadrado=?,tipo_material=? WHERE codigo_material=?";
-        try {
-            con = cn.Conexion();
-            ps = con.prepareStatement(sentencia);
-            ps.setString(1, material.getNombre());
-            ps.setString(2, material.getRutaImagen());
-            ps.setInt(3, material.getPrecioMetroCuadrado());
-            ps.setInt(4, material.getCantidadMetroCuadrado());
-            ps.setInt(5, material.getTipoMaterial());
-            ps.setString(6, material.getUnidadMedida());
-            ps.setInt(7, material.getCodigoMaterial());
-
-            ps.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return r;
-    }
-
-    public void Eliminar(int codigoMaterial) {
-
-        String sql = "DELETE FROM tblmaterial WHERE codigo_material=" + codigoMaterial;
-        con = cn.Conexion();
-        try {
-            ps = con.prepareStatement(sql);
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public List ListarTipoMaterial() {
+    /*public List ListarTipoMaterial() {
         String consulta = "CALL sp_MostrarTipoMaterial() ";
         List<DTOTipoMaterial> listaTM = new ArrayList<>();
 
@@ -182,5 +178,4 @@ public class DAOMaterial {
         }
         return listaTM;
 
-    }
-}
+    }*/

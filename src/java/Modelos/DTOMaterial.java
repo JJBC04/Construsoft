@@ -6,20 +6,20 @@ package Modelos;
  */
 public class DTOMaterial {
 
-    private int codigoMaterial, precioMetroCuadrado, cantidadMetroCuadrado, tipoMaterial;
-    private String nombre, rutaImagen, txtTipoMaterial, unidadMedida;
+    private int codigoMaterial, precioMetroCuadrado, cantidadMetroCuadrado;
+    private String nombre, rutaImagen,unidadMedida;
 
     public DTOMaterial() {
     }
 
-    public DTOMaterial(int codigoMaterial, int precioMetroCuadrado, int cantidadMetroCuadrado, int tipoMaterial, String nombre, String rutaImagen, String txtTipoMaterial, String unidadMedida) {
+    public DTOMaterial(int codigoMaterial, int precioMetroCuadrado, int cantidadMetroCuadrado, String nombre, String rutaImagen, String unidadMedida) {
         this.codigoMaterial = codigoMaterial;
         this.precioMetroCuadrado = precioMetroCuadrado;
         this.cantidadMetroCuadrado = cantidadMetroCuadrado;
         this.nombre = nombre;
         this.rutaImagen = rutaImagen;
-        this.tipoMaterial = tipoMaterial;
-        this.txtTipoMaterial = txtTipoMaterial;
+        //this.tipoMaterial = tipoMaterial;
+        //this.txtTipoMaterial = txtTipoMaterial;
         this.unidadMedida = unidadMedida;
     }
 
@@ -71,19 +71,4 @@ public class DTOMaterial {
         this.rutaImagen = rutaImagen;
     }
 
-    public int getTipoMaterial() {
-        return tipoMaterial;
-    }
-
-    public void setTipoMaterial(int tipoMaterial) {
-        this.tipoMaterial = tipoMaterial;
-    }
-
-    public String getTxtTipoMaterial() {
-        return txtTipoMaterial;
-    }
-
-    public void setTxtTipoMaterial(String txtTipoMaterial) {
-        this.txtTipoMaterial = txtTipoMaterial;
-    }
 }

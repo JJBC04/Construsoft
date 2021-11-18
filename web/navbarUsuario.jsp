@@ -100,7 +100,7 @@
                             <div class="navbar-nav mr-auto">
                                 <a href="index.jsp" class="nav-item nav-link active">Inicio</a>
                                 <a href="about.html" class="nav-item nav-link">Acerca de nosotros</a>
-                                <a href="single.html" class="nav-item nav-link">Presupuesto</a>
+                                <a href="Presupuesto.jsp" class="nav-item nav-link">Presupuesto</a>
                                 <a href="contact.html" class="nav-item nav-link">Contactanos</a>
                                 <a href="ControladorMaterial?accion=ListarParaUser" class="nav-item nav-link">Materiales</a>
                                 <a href="Controlador?menu=Usuario&accion=ListarUser&cedula=<% out.print(rol);%>" class="nav-item nav-link">Editar Perfil</a>

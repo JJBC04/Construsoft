@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controladores;
 
 import Modelos.DAOMaterial;
 import Modelos.DTOMaterial;
-import Modelos.DTOTipoMaterial;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,29 +40,25 @@ public class ControladorMaterial extends HttpServlet {
 
         switch (action) {
             case "Agregar":
-                
                 guardarMaterial(request, response);
-                
                 break;
             case "Listar":
-                
-                System.out.println("Es igual");
+               
                 List<DTOMaterial> lista = DAOMaterial.Listar();
                 request.setAttribute("materiales", lista);
-                List<DTOTipoMaterial> listaTM = DAOMaterial.ListarTipoMaterial();
-                request.setAttribute("tipoMateriales", listaTM);
+                //List<DTOTipoMaterial> listaTM = DAOMaterial.ListarTipoMaterial();
+                //request.setAttribute("tipoMateriales", listaTM);
                 request.getRequestDispatcher("Materiales.jsp").forward(request, response);
                 
                 break;
             case"ListarParaUser":
                 List<DTOMaterial> listaM = DAOMaterial.Listar();
                 request.setAttribute("materiales", listaM);
-                List<DTOTipoMaterial> listaTMU = DAOMaterial.ListarTipoMaterial();
-                request.setAttribute("tipoMateriales", listaTMU);
+                //List<DTOTipoMaterial> listaTMU = DAOMaterial.ListarTipoMaterial();
+                //request.setAttribute("tipoMateriales", listaTMU);
                 request.getRequestDispatcher("MaterialesU.jsp").forward(request, response);
                 break;
             case "Cargar":
-                  System.out.print("Es igual");
                 codigoMaterial = Integer.parseInt(request.getParameter("codigoMaterial"));
                 DTOMaterial material = DAOMaterial.ListarPorCodigo(codigoMaterial);
                 ImgA = material.getRutaImagen();
@@ -81,7 +71,7 @@ public class ControladorMaterial extends HttpServlet {
                 String nombreUpdate = request.getParameter("txtNombreMaterial");
                 String imagenUpdate;
                 int precioUpdate = Integer.parseInt(request.getParameter("txtPrecio"));
-                int tipoMaterialUpdate = Integer.parseInt(request.getParameter("txtTipoMaterial"));
+                //int tipoMaterialUpdate = Integer.parseInt(request.getParameter("txtTipoMaterial"));
                 int cantidadMetroCuadradoUpdate = Integer.parseInt(request.getParameter("txtCantidadMetro"));
                 imagenUpdate = request.getParameter("fileImagen");
                 String unidadMedidaUpdate = request.getParameter("txtUnidadMedida");
@@ -93,7 +83,7 @@ public class ControladorMaterial extends HttpServlet {
                 material1.setNombre(nombreUpdate);
                 material1.setRutaImagen(imagenUpdate);
                 material1.setPrecioMetroCuadrado(precioUpdate);
-                material1.setTipoMaterial(tipoMaterialUpdate);
+                //material1.setTipoMaterial(tipoMaterialUpdate);
                 material1.setCantidadMetroCuadrado(cantidadMetroCuadradoUpdate);
                 material1.setUnidadMedida(unidadMedidaUpdate);
                 material1.setCodigoMaterial(codigoMaterialUP);
@@ -120,7 +110,7 @@ public class ControladorMaterial extends HttpServlet {
             Path path = Paths.get(part.getSubmittedFileName());
             String nombreI = path.getFileName().toString();
             String unidadMedida = req.getParameter("txtUnidadMedida");
-            int tipoMaterial = Integer.parseInt(req.getParameter("txtTipoMaterial"));
+            //int tipoMaterial = Integer.parseInt(req.getParameter("txtTipoMaterial"));
             int precio = Integer.parseInt(req.getParameter("txtPrecio"));
             int cantidadMaterialMetro = Integer.parseInt(req.getParameter("txtCantidadMetro"));
             
@@ -132,7 +122,7 @@ public class ControladorMaterial extends HttpServlet {
 
             if (esExtension(part.getSubmittedFileName(), extens)) {
                 String imagen = guardarArchivo(part, uploads);
-                DTOMaterial material = new DTOMaterial(codigo_material,precio, cantidadMaterialMetro,tipoMaterial,nombre,nombreI,"", unidadMedida);
+                DTOMaterial material = new DTOMaterial(codigo_material,precio,cantidadMaterialMetro,nombre,nombreI, unidadMedida);
                 
                 
                 

@@ -92,7 +92,7 @@ public class Controlador extends HttpServlet {
                     DTOUsuario.setClave(clave);
                     DTOUsuario.setRol(rol);
                     DAOUsuario.Agregar(DTOUsuario);
-                    request.getRequestDispatcher("login.html").forward(request, response);
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                     break;
 
                 case "Actualizar":
@@ -119,7 +119,7 @@ public class Controlador extends HttpServlet {
                     String apellidoUpdateU = request.getParameter("txtapellido");
                     String correoUpdateU = request.getParameter("txtcorreo");
                     String claveUpdateU = request.getParameter("txtclave");
-                    int rolUpdateU = Integer.parseInt(request.getParameter("txtrol1"));
+                    int rolUpdateU = Integer.parseInt(request.getParameter("txtrol"));
                     usuario2.setCedula(cedulaUpdateU);
                     usuario2.setNombre(nombreUpdateU);
                     usuario2.setApellido(apellidoUpdateU);

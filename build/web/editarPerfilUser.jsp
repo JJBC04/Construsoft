@@ -99,7 +99,7 @@
                 </div>
                 <p class="p-container">
 
-                    <input type="submit" name="accion"  value="Actualizar">
+                    <input type="submit" name="accion"  value="ActualizarUser">
                     <input type="hidden" name="cedula" value="${usuarioSeleccionado.getCedula()}">
                 </p>
             </form>
