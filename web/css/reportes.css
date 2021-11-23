@@ -1,0 +1,22 @@
+.espacioReporte{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #35A8BD;    
+    width: 88.2%;
+    margin: auto;
+    color: rgb(31, 32, 32);
+    flex-flow: wrap;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+h5{
+    color: rgb(31, 32, 32) !important;
+}
+.card{
+    width: 50% !important;
+}
+#prueba{ 
+    margin: auto;
+    width: 100%;
+}

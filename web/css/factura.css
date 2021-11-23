@@ -1,0 +1,55 @@
+*{
+    color: white;
+}
+.factura{
+    display: flex;
+    flex-direction: column  ;
+    border: 1px solid #35A8BD;
+    background:#030f27; 
+    padding: 20px;
+
+}
+.titulo{
+    border: 1px solid #35A8BD;
+    text-align: center;
+}
+.titulo h1{
+    color: #FFFFFF !important;
+}
+.tituloTexto{
+    color: #FFFFFF !important;
+}
+.info{
+    border: 1px solid #35A8BD;
+
+}
+
+.presuTotal{
+    display: flex;
+    border: 1px solid #35A8BD;
+    justify-content:  center;
+}
+.datos{
+   display: flex;
+   flex-direction: column;
+   width: 70%;
+   margin: auto;
+}
+
+.tablaPrincipal{
+    width: 100%;
+}
+table{
+    width: 100%;
+    border: 1px solid #35A8BD;
+}
+th,td{
+    border: 1px solid #35A8BD;
+    width: 20%;
+}
+.estilo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}

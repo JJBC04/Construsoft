@@ -98,10 +98,17 @@
 
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto">
-                                <a href="index.jsp" class="nav-item nav-link active">Inicio</a>
-                                <a href="about.html" class="nav-item nav-link">Acerca de nosotros</a>
-                                <a href="Presupuesto.jsp" class="nav-item nav-link">Presupuesto</a>
-                                <a href="contact.html" class="nav-item nav-link">Contactanos</a>
+                                <a href="index.jsp" class="nav-item nav-link">Inicio</a>
+                                <div class="dropdown">
+                                    <p class="nav-item nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        PRESUPUESTO
+                                    </p>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a href="ControladorPresupuesto?accion=ListarPresupuesto" class="dropdown-item">VER PRESUPUESTO</a>
+                                        <br>
+                                        <a href="Presupuesto.jsp" class="dropdown-item">PRESUPUESTO</a>
+                                    </div>
+                                </div>
                                 <a href="ControladorMaterial?accion=ListarParaUser" class="nav-item nav-link">Materiales</a>
                                 <a href="Controlador?menu=Usuario&accion=ListarUser&cedula=<% out.print(rol);%>" class="nav-item nav-link">Editar Perfil</a>
                             </div>
@@ -112,7 +119,7 @@
                     </nav>
                 </div>
             </div>
- 
+
             <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         </div>
 

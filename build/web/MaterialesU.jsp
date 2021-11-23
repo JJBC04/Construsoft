@@ -44,28 +44,26 @@
         <%
             Integer rol = (Integer) application.getAttribute("rol");
             switch (rol) {
-                case 2:
-                    out.print("<script> $(function(){ $('#nav-placeholder').load('navbarAdmin.jsp');});</script>");
-                    break;
                 case 1:
-
                     out.print("<script> $(function(){ $('#nav-placeholder').load('navbarUsuario.jsp');});</script>");
                     break;
-                default:
-                    out.print("<jsp: forward page='login.html' />");
+                case 2:
+                    out.print("<script>alert('No se permite administradores aqui :D'); document.location.href='index.jsp'; </script >");
                     break;
-
+                default:
+                    out.print("<script>alert('Inicie Sesión'); document.location.href='login.html'; </script >");
+                    break;
             }
-
-
         %>
+        <br>
+        <h3 class="tituloMaterialesUser">Materiales Base para vivienda</h3>
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-dark table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Nombre Material</th>
-                          
+
                             <th scope="col">Imagen</th>
                             <th scope="col">Precio</th>
                         </tr>   

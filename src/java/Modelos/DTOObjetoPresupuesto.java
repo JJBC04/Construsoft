@@ -10,21 +10,31 @@ package Modelos;
  * @author jjbue
  */
 public class DTOObjetoPresupuesto {
+
     //public double cantidadTotalxMaterial;
-    public int precioTotalxMaterial,cantidadTotalxMaterial,precioTotalMateriales;
-    public String nombreMaterial,precioUnitarioxMaterial;
-    //public List nombreMaterial;   
-    // public List cantidadMetroCuadrado;
+    public int codigoMaterial, precioTotalxMaterial, cantidadTotalxMaterial, precioTotalMateriales, metrosConstruir;
+    public String nombreMaterial, precioUnitarioxMaterial, unidadMedida;
 
     public DTOObjetoPresupuesto() {
     }
 
-    public DTOObjetoPresupuesto(int precioTotalxMaterial, int cantidadTotalxMaterial, int precioTotalMateriales, String nombreMaterial, String precioUnitarioxMaterial) {
+    public DTOObjetoPresupuesto(int codigoMaterial, int precioTotalxMaterial, int cantidadTotalxMaterial, int precioTotalMateriales, int metrosConstruir, String nombreMaterial, String precioUnitarioxMaterial, String unidadMedida) {
+        this.codigoMaterial = codigoMaterial;
         this.precioTotalxMaterial = precioTotalxMaterial;
         this.cantidadTotalxMaterial = cantidadTotalxMaterial;
         this.precioTotalMateriales = precioTotalMateriales;
+        this.metrosConstruir = metrosConstruir;
         this.nombreMaterial = nombreMaterial;
         this.precioUnitarioxMaterial = precioUnitarioxMaterial;
+        this.unidadMedida = unidadMedida;
+    }
+
+    public int getCodigoMaterial() {
+        return codigoMaterial;
+    }
+
+    public void setCodigoMaterial(int codigoMaterial) {
+        this.codigoMaterial = codigoMaterial;
     }
 
     public int getPrecioTotalxMaterial() {
@@ -51,6 +61,14 @@ public class DTOObjetoPresupuesto {
         this.precioTotalMateriales = precioTotalMateriales;
     }
 
+    public int getMetrosConstruir() {
+        return metrosConstruir;
+    }
+
+    public void setMetrosConstruir(int metrosConstruir) {
+        this.metrosConstruir = metrosConstruir;
+    }
+
     public String getNombreMaterial() {
         return nombreMaterial;
     }
@@ -67,7 +85,12 @@ public class DTOObjetoPresupuesto {
         this.precioUnitarioxMaterial = precioUnitarioxMaterial;
     }
 
-    
-   
+    public String getUnidadMedida() {
+        return unidadMedida;
+    }
+
+    public void setUnidadMedida(String unidadMedida) {
+        this.unidadMedida = unidadMedida;
+    }
+
 }
-   

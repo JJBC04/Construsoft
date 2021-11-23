@@ -74,19 +74,13 @@
                     out.print("<script> $(function(){ $('#nav-placeholder').load('navbarAdmin.jsp');});</script>");
                     break;
                 case 1:
-
                     out.print("<jsp: forward page='index.jsp'/>");
                     break;
                 default:
                     out.print("<jsp: forward page='login.html' />");
                     break;
-
             }
-
-
         %>
-
-
         <div class="feature wow fadeInUp" > 
             <div class="linea_block">
                 <div class="form">
@@ -136,8 +130,8 @@
                                             Unidad Medida<span class="req">*</span>
                                         </label>
                                     </div>
-                                         <div class="field-wrap">
-                                        
+                                    <div class="field-wrap">
+
                                     </div>
                                 </div>
                                 <input type="hidden" name="codigoM" value="${materialSeleccionado.getCodigoMaterial()}" >

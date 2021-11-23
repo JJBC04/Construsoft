@@ -156,7 +156,8 @@ public class DAOUsuario {
     }
 
     public void Eliminar(int cedula) {
-
+        DAOPresupuesto eliminarPresupuesto = new DAOPresupuesto();
+        eliminarPresupuesto.EliminarPresupuestoUsuarioEliminar(cedula);
         String sql = "DELETE FROM tblusuario WHERE cedula=" + cedula;
         con = cn.Conexion();
         try {

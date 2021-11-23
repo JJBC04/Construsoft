@@ -29,6 +29,7 @@
     </head>
 
     <body>
+
         <div class="wrapper">
             <!-- Top Bar Start -->
 
@@ -47,7 +48,7 @@
                             <div class="navbar-nav mr-auto">
                                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
                                 <a href="acercanosotros.html" class="nav-item nav-link">Acerca de nosotros</a>
-                                <a href="Controlador?menu=Usuario&accion=AgregarUsuario" class="nav-item nav-link">Registro</a> 
+                                <a href="" class="nav-item nav-link">Registro</a> 
                             </div>
                             <div class="ml-auto">
                                 <a class="btn" href="login.jsp">Iniciar Sesion</a>
@@ -75,12 +76,12 @@
 
                     </div>
                     <p class="p-container">
-                        <a href="">¿Olvido Contraseña?</a>
+                        <!--<a href="" onclick='enviarProm()'>¿Olvido Contraseña?</a>-->
                         <input type="submit" name="accion" value="Ingresar">
                     </p>
                 </form>
             </div>
-            <!-- Carousel End -->
+
 
 
             <!-- Feature Start-->
@@ -164,7 +165,6 @@
 
             <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         </div>
-
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

@@ -24,7 +24,7 @@ import javax.servlet.http.Part;
 @MultipartConfig
 @WebServlet(name = "ControladorMaterial", urlPatterns = {"/ControladorMaterial"})
 public class ControladorMaterial extends HttpServlet {
-
+ //Variables donde estara la ruta para guardar la imagen referente al servidor
     private static final long serialVersionUID = 1L;
     private DAOMaterial DAOMaterial = new DAOMaterial();
     private String pathFiles = "D:\\xampp\\htdocs\\img";

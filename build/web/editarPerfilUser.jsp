@@ -45,21 +45,17 @@
             </div>
             <%
                 DTOUsuario usuario = (DTOUsuario) session.getAttribute("usuarioSesion");
-
                 int rol = usuario.getRol();
-
                 switch (rol) {
+                    case 1:
+                        out.print("<script> $(function(){ $('#nav-placeholder').load('navbarUsuario.jsp');});</script>");
+                        break;
                     case 2:
                         out.print("<script> $(function(){ $('#nav-placeholder').load('navbarAdmin.jsp');});</script>");
                         break;
-                    case 1:
-
-                        out.print("<script> $(function(){ $('#nav-placeholder').load('navbarUsuario.jsp');});</script>");
-                        break;
                     default:
-                        out.print("<jsp: forward page='login.html' />");
+                        out.print("<script>alert('Inicie Sesión'); document.location.href='login.html'; </script >");
                         break;
-
                 }
 
             %>
@@ -89,22 +85,13 @@
                         <input type="password" name="txtclave" id="clave" value="${usuarioSeleccionado.getClave()}">
                     </p>
                     <input type="hidden" name="txtrol" value ="${usuarioSeleccionado.getRol()}">
-                    <!--<p>
-                        <label for="Nombre">Rol</label>
-                        <select name="rol" id="rol">
-                            <option value="admin">Admin</option>
-                            <option value="admin">Usuario</option>
-                        </select>
-                    </p>-->
                 </div>
                 <p class="p-container">
 
-                    <input type="submit" name="accion"  value="ActualizarUser">
+                    <input type="submit" name="accion"  value="Actualizar Datos">
                     <input type="hidden" name="cedula" value="${usuarioSeleccionado.getCedula()}">
                 </p>
             </form>
-
-       
 
 
             <!-- Feature Start-->
@@ -118,7 +105,7 @@
                                 </div>
                                 <div class="feature-text">
                                     <h3>Trabajo Experto</h3>
-                                    <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                                    <p>Datos reales avalados por especialistas de la construcciòn</p>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +116,7 @@
                                 </div>
                                 <div class="feature-text">
                                     <h3>Eficacia</h3>
-                                    <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                                    <p>Sistema rapido y seguro</p>
                                 </div>
                             </div>
                         </div>
@@ -140,14 +127,13 @@
                                 </div>
                                 <div class="feature-text">
                                     <h3>24/7 Soporte</h3>
-                                    <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                                    <p>Soporte para preguntas y problemas con el sistema</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Feature End-->
 
 
             <!-- About Start -->

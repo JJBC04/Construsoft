@@ -37,7 +37,7 @@ public class DAOMaterial {
                 material.setNombre(rs.getString("nombre"));
                 material.setRutaImagen(rs.getString("ruta_imagen"));
                 material.setPrecioMetroCuadrado(rs.getInt("precio_metro_cuadrado"));
-                material.setCantidadMetroCuadrado(rs.getInt("cantidad_metro_cuadrado"));
+                material.setCantidadMetroCuadrado(rs.getDouble("cantidad_metro_cuadrado"));
                 material.setUnidadMedida(rs.getString("unidad_medida"));
                 //material.setTxtTipoMaterial(rs.getString("tipo_material"));
                 lista.add(material);
@@ -81,7 +81,7 @@ public class DAOMaterial {
             ps.setString(1, material.getNombre());
             ps.setString(2, material.getRutaImagen());
             ps.setInt(3, material.getPrecioMetroCuadrado());
-            ps.setInt(4, material.getCantidadMetroCuadrado());
+            ps.setDouble(4, material.getCantidadMetroCuadrado());
             ps.setString(5, material.getUnidadMedida());
             //ps.setInt(6, material.getTipoMaterial());
             ps.executeUpdate();
@@ -101,7 +101,7 @@ public class DAOMaterial {
             ps.setString(1, material.getNombre());
             ps.setString(2, material.getRutaImagen());
             ps.setInt(3, material.getPrecioMetroCuadrado());
-            ps.setInt(4, material.getCantidadMetroCuadrado());
+            ps.setDouble(4, material.getCantidadMetroCuadrado());
             ps.setString(5, material.getUnidadMedida());
             //ps.setInt(6, material.getTipoMaterial());
             ps.setInt(6, material.getCodigoMaterial());

@@ -8,11 +8,10 @@
             <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/web/Principal.jsp</file>
         </group>
         <group name="proyectos NetBeans">
-            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/src/java/Controladores/Controlador.java</file>
-            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/web/Usuarios.jsp</file>
-            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/src/java/Modelos/DAOPresupuesto.java</file>
-            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/src/java/Controladores/ControladorPresupuesto.java</file>
-            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/web/Presupuesto.jsp</file>
+            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/src/java/Reportes/MaterialGalon.java</file>
+            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/src/java/Reportes/Backup.java</file>
+            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/web/adminReportes.jsp</file>
+            <file>file:/D:/Proyectos/proyectos%20NetBeans/Construsoft/web/ReportesBack.html</file>
         </group>
     </open-files>
 </project-private>

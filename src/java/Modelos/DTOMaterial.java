@@ -6,13 +6,14 @@ package Modelos;
  */
 public class DTOMaterial {
 
-    private int codigoMaterial, precioMetroCuadrado, cantidadMetroCuadrado;
-    private String nombre, rutaImagen,unidadMedida;
+    private int codigoMaterial, precioMetroCuadrado;
+    private String nombre, rutaImagen, unidadMedida;
+    private double cantidadMetroCuadrado;
 
     public DTOMaterial() {
     }
 
-    public DTOMaterial(int codigoMaterial, int precioMetroCuadrado, int cantidadMetroCuadrado, String nombre, String rutaImagen, String unidadMedida) {
+    public DTOMaterial(int codigoMaterial, int precioMetroCuadrado, double cantidadMetroCuadrado, String nombre, String rutaImagen, String unidadMedida) {
         this.codigoMaterial = codigoMaterial;
         this.precioMetroCuadrado = precioMetroCuadrado;
         this.cantidadMetroCuadrado = cantidadMetroCuadrado;
@@ -39,11 +40,11 @@ public class DTOMaterial {
         this.precioMetroCuadrado = precioMetroCuadrado;
     }
 
-    public int getCantidadMetroCuadrado() {
+    public double getCantidadMetroCuadrado() {
         return cantidadMetroCuadrado;
     }
 
-    public void setCantidadMetroCuadrado(int cantidadMetroCuadrado) {
+    public void setCantidadMetroCuadrado(double cantidadMetroCuadrado) {
         this.cantidadMetroCuadrado = cantidadMetroCuadrado;
     }
 

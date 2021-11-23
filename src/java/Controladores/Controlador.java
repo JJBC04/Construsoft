@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controladores;
 
 import Modelos.DAOUsuario;
@@ -25,8 +20,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Controlador", urlPatterns = {"/Controlador"})
 @MultipartConfig
 public class Controlador extends HttpServlet {
-
-    DTOUsuario DTOUsuario = new DTOUsuario();
+    //Instanciar objetos DTO con los datos y DAO con las funciones
+    DTOUsuario DTOUsuario = new DTOUsuario(); 
     DAOUsuario DAOUsuario = new DAOUsuario();
     int cedulaUsuario;
 
@@ -49,10 +44,11 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
         }
-
+        //Comprueba que menu es y la accion correspondiente
         if (menu.equals("Usuario")) {
             switch (accion) {
                 case "Listar":
+                    //Si el caso es listar, trae los todos los registros de la tblusuario(Administrador)
                     List<DTOUsuario> lista = DAOUsuario.Listar();
                     request.setAttribute("usuarios", lista);
                     List<DTORol> listaR = DAOUsuario.ListarRol();
@@ -61,6 +57,7 @@ public class Controlador extends HttpServlet {
 
                     break;
                 case "Agregar Usuario":
+                    //Captura los datos de la vista, asigna a variables y luego estas a un objeto DTO
                     int cedulaU = Integer.parseInt(request.getParameter("txtcedula"));
                     String nombreU = request.getParameter("txtnombre");
                     String apellidoU = request.getParameter("txtapellido");
@@ -74,10 +71,12 @@ public class Controlador extends HttpServlet {
                     DTOUsuario.setCorreo(correoU);
                     DTOUsuario.setClave(claveU);
                     DTOUsuario.setRol(rolU);
+                    //La funcion DAOagregar realiza un INSERT en la tblusuario
                     DAOUsuario.Agregar(DTOUsuario);
                     request.getRequestDispatcher("Controlador?menu=Usuario&accion=Listar").forward(request, response);
                     break;
                 case "Agregar":
+                    //Cuando el usuario se registra
                     int cedula = Integer.parseInt(request.getParameter("txtcedula"));
                     String nombre = request.getParameter("txtnombre");
                     String apellido = request.getParameter("txtapellido");
@@ -91,11 +90,13 @@ public class Controlador extends HttpServlet {
                     DTOUsuario.setCorreo(correo);
                     DTOUsuario.setClave(clave);
                     DTOUsuario.setRol(rol);
+                    //Se llama DAOAgregar y se envia el objeto con los datos ingresados por el user
                     DAOUsuario.Agregar(DTOUsuario);
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                     break;
 
                 case "Actualizar":
+                    //Se actualiza desde la vista del administrador
                     DTOUsuario usuario1 = new DTOUsuario();
                     int cedulaUpdate = Integer.parseInt(request.getParameter("txtcedula"));
                     String nombreUpdate = request.getParameter("txtnombre");
@@ -112,7 +113,9 @@ public class Controlador extends HttpServlet {
                     DAOUsuario.Actualizar(usuario1);
                     request.getRequestDispatcher("Controlador?menu=Usuario&accion=Listar").forward(request, response);
                     break;
-                case "ActualizarUser":
+                    
+                case "Actualizar Datos":
+                    //Actualizar desde el usuario
                     DTOUsuario usuario2 = new DTOUsuario();
                     int cedulaUpdateU = Integer.parseInt(request.getParameter("txtcedula"));
                     String nombreUpdateU = request.getParameter("txtnombre");
@@ -130,6 +133,7 @@ public class Controlador extends HttpServlet {
                     request.getRequestDispatcher("Controlador?menu=Usuario&accion=ListarUser").forward(request, response);
                     break;
                 case "Cargar":
+                    //Cuando el administrador seleciona un registro para editar
                     cedulaUsuario = Integer.parseInt(request.getParameter("Cedula"));
                     DTOUsuario usuario = DAOUsuario.ListarPorId(cedulaUsuario);
                     request.setAttribute("usuarioSeleccionado", usuario);
@@ -137,25 +141,27 @@ public class Controlador extends HttpServlet {
                     break;
 
                 case "Eliminar":
+                    //Cuando el administrador seleciona un registro para eliminar
                     cedulaUsuario = Integer.parseInt(request.getParameter("Cedula"));
                     DAOUsuario.Eliminar(cedulaUsuario);
                     request.getRequestDispatcher("Controlador?menu=Usuario&accion=Listar").forward(request, response);
                     break;
                 case "ListarUser":
-
+                     //Trae los registros del usuario especifico(Administrador, Usuario)
                     cedulaUsuario = Integer.parseInt(request.getParameter("cedula"));
-
                     DTOUsuario usser = DAOUsuario.ListarPorId(cedulaUsuario);
                     request.setAttribute("usuarioSeleccionado", usser);
                     request.getRequestDispatcher("editarPerfilUser.jsp").forward(request, response);
                     break;
 
                 case "AgregarUsuario":
+                    
                     List<DTORol> listaRol = DAOUsuario.ListarRol();
                     request.setAttribute("rol", listaRol);
                     request.getRequestDispatcher("registrarUsuario.jsp").forward(request, response);
                     break;
                 case "Salir":
+                    //Se eliima la sesion
                     HttpSession session = request.getSession();
                     session.invalidate();
                     request.getRequestDispatcher("index.html").forward(request, response);

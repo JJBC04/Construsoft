@@ -9,6 +9,7 @@ import Modelos.DTOUsuario;
 import Modelos.DAOUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -102,7 +103,7 @@ public class Validar extends HttpServlet {
             }
 
         } else {
-            request.getRequestDispatcher("login.html").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 
     }

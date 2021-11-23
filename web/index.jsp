@@ -69,7 +69,7 @@
                     <img src="img/carousel-1.jpg" alt="Carousel Image">
                     <div class="carousel-caption">
                         <h1 class="animated fadeInLeft">CONSTRUSOFT</h1>
-                        <a class="btn animated fadeInUp" href="login.html">Iniciar Presupuesto</a>
+                        <a class="btn animated fadeInUp" href="Presupuesto.jsp">Iniciar Presupuesto</a>
                     </div>
                 </div>  
 
@@ -102,8 +102,6 @@
             </a>
         </div>
         <!-- Carousel End -->
-
-
         <!-- Feature Start-->
         <div class="feature wow fadeInUp" data-wow-delay="0.1s">
             <div class="container-fluid">
@@ -115,7 +113,7 @@
                             </div>
                             <div class="feature-text">
                                 <h3>Trabajo Experto</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                                <p>Datos reales avalados por especialistas de la construcciòn</p>
                             </div>
                         </div>
                     </div>
@@ -126,7 +124,7 @@
                             </div>
                             <div class="feature-text">
                                 <h3>Eficacia</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                                <p>Sistema rapido y seguro</p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +135,7 @@
                             </div>
                             <div class="feature-text">
                                 <h3>24/7 Soporte</h3>
-                                <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                                <p>Soporte para preguntas y problemas con el sistema</p>
                             </div>
                         </div>
                     </div>
