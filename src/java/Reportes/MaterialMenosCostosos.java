@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Reportes;
 
 import Config.Conexion;
@@ -36,8 +31,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jjbue
  */
-@WebServlet(name = "MaterialMasCostoso", urlPatterns = {"/MaterialMasCostoso"})
-public class MaterialMasCostoso extends HttpServlet {
+@WebServlet(name = "MaterialMenosCostosos", urlPatterns = {"/MaterialMenosCostosos"})
+public class MaterialMenosCostosos extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,7 +47,7 @@ public class MaterialMasCostoso extends HttpServlet {
                 Conexion cn = new Conexion();
                 con = cn.Conexion();
 
-                ps = con.prepareStatement("SELECT * FROM tblmaterial ORDER BY precio_metro_cuadrado DESC LIMIT 1");
+                ps = con.prepareStatement("SELECT codigo_material,nombre, precio_metro_cuadrado FROM tblmaterial ORDER BY precio_metro_cuadrado ASC LIMIT 4");
                 rs = ps.executeQuery();
 
                 if (con != null) {
@@ -68,7 +63,7 @@ public class MaterialMasCostoso extends HttpServlet {
 
                         Paragraph par1 = new Paragraph();
                         Font fonttitulo = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.BLUE);
-                        par1.add(new Phrase("Reporte #2 Construsoft", fonttitulo));
+                        par1.add(new Phrase("Reporte #3 Construsoft", fonttitulo));
                         par1.setAlignment(Element.ALIGN_CENTER);
                         par1.add(new Phrase(Chunk.NEWLINE));
                         par1.add(new Phrase(Chunk.NEWLINE));
@@ -77,7 +72,7 @@ public class MaterialMasCostoso extends HttpServlet {
 
                         Paragraph par2 = new Paragraph();
                         Font fontdescrip = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC, BaseColor.DARK_GRAY);
-                        par2.add(new Phrase("Reporte el material más costoso.", fontdescrip));
+                        par2.add(new Phrase("Reporte sobre los materiales con menor costo.", fontdescrip));
                         par2.setAlignment(Element.ALIGN_JUSTIFIED);
                         par2.add(new Phrase(Chunk.NEWLINE));
                         par2.add(new Phrase(Chunk.NEWLINE));
@@ -85,7 +80,7 @@ public class MaterialMasCostoso extends HttpServlet {
 
                         PdfPTable tabla = new PdfPTable(3);
                         PdfPCell celda1 = new PdfPCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
-                        PdfPCell celda2 = new PdfPCell(new Paragraph("Nombre Material", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
+                        PdfPCell celda2 = new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
                         PdfPCell celda3 = new PdfPCell(new Paragraph("Precio", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
 
                         tabla.addCell(celda1);
@@ -95,7 +90,7 @@ public class MaterialMasCostoso extends HttpServlet {
                         while (rs.next()) {
                             tabla.addCell(rs.getString(1));
                             tabla.addCell(rs.getString(2));
-                            tabla.addCell(rs.getString(4)); 
+                            tabla.addCell(rs.getString(3));
                         }
 
                         documento.add(tabla);

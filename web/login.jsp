@@ -67,11 +67,11 @@
                     <div class="inset">
                         <p>
                             <label for="email">Correo</label>
-                            <input type="email" name="txtusuario" minlength="8" maxlength="40" required>
+                            <input type="email" name="txtusuario" minlength="8" maxlength="40" required autocomplete="off">
                         </p>
                         <p>
                             <label for="password">Clave</label>
-                            <input type="password" name="txtpassword" requiered maxlength="30" required>
+                            <input type="password" name="txtpassword" requiered maxlength="30" required autocomplete="off">
                         </p>
 
                     </div>

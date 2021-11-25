@@ -113,7 +113,7 @@
                             <div class="top-row">
                                 <div class="field-wrap">
 
-                                    <input type="number" value="${presupuestoDatos.getMetrosConstruir()}" name="mCuadrados" required=""/>
+                                    <input type="number" min="30" max="60" value="${presupuestoDatos.getMetrosConstruir()}" name="mCuadrados" required=""/>
                                     <label>
                                         Metros a construir
                                     </label>
@@ -121,7 +121,7 @@
 
                                 <div class="field-wrap">
 
-                                    <input type="text" name="nombrePresupuesto" value="${presupuestoDatos.getNombrePresupuesto()}">
+                                    <input type="text" name="nombrePresupuesto" value="${presupuestoDatos.getNombrePresupuesto()}" autocomplete="off">
                                     <label>
                                         Nombre Presupuesto<span class="req">*</span>
                                     </label>
@@ -129,7 +129,7 @@
                             </div>
                             <div class="field-wrap">
 
-                                <input type="text" name="descripcionPresupuesto" value="${presupuestoDatos.getDescripcionPresupuesto()}">
+                                <input type="text" name="descripcionPresupuesto" value="${presupuestoDatos.getDescripcionPresupuesto()}" autocomplete="off">
 
                                 <label>
                                     Descripción

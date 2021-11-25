@@ -72,7 +72,7 @@ public class ControladorMaterial extends HttpServlet {
                 String imagenUpdate;
                 int precioUpdate = Integer.parseInt(request.getParameter("txtPrecio"));
                 //int tipoMaterialUpdate = Integer.parseInt(request.getParameter("txtTipoMaterial"));
-                int cantidadMetroCuadradoUpdate = Integer.parseInt(request.getParameter("txtCantidadMetro"));
+                double cantidadMetroCuadradoUpdate = Double.parseDouble(request.getParameter("txtCantidadMetro"));
                 imagenUpdate = request.getParameter("fileImagen");
                 String unidadMedidaUpdate = request.getParameter("txtUnidadMedida");
                 int codigoMaterialUP = Integer.parseInt(request.getParameter("codigoM"));

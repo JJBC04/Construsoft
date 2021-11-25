@@ -53,7 +53,7 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto">
                                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                                <a href="about.html" class="nav-item nav-link">Acerca de nosotross</a>
+                                <a href="acercanosotros.html" class="nav-item nav-link">Acerca de nosotross</a>
                                 <a href="portfolio.html" class="nav-item nav-link">Registro</a>
                                 <div class="nav-item dropdown">
                                     <div class="dropdown-menu">

@@ -60,6 +60,7 @@
                     <div class="card-header">
                         REPORTE 1
                     </div>
+
                     <div class="card-body">
                         <h5 class="card-title"> Material Galon</h5>
                         <p class="card-text">El material con tipo material galon.</p>
@@ -79,11 +80,11 @@
                 <div class="card">
                     <div class="card-header">
                         REPORTE 3
-                    </div>
+                    </div>  
                     <div class="card-body">
                         <h5 class="card-title">Material Menos Costoso</h5>
                         <p class="card-text">El material menos costoso por metro cuadrado.</p>
-                        <a href="MaterialMenosCostoso" class="btn btn-primary">Ver reporte</a>
+                        <a href="MaterialMenosCostosos" class="btn btn-primary">Ver reporte</a>
                     </div>
                 </div>
 
@@ -94,7 +95,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Num presupuestos Cliente</h5>
                         <p class="card-text">Numero de presupuestos por cada cliente.</p>
-                        <a href="NumeroPresupuestos" class="btn btn-primary">Ver reporte</a>
+                        <a href="NumeroPresupuesto" class="btn btn-primary">Ver reporte</a>
                     </div>
                 </div>
 
@@ -105,7 +106,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Presupuestos Menos Costosos</h5>
                         <p class="card-text">Los presupuestos hecho menos costosos.</p>
-                        <a href="PresupuestoMenosCostoso" class="btn btn-primary">Ver reporte</a>
+                        <a href="PresupuestoMenosCosto" class="btn btn-primary">Ver reporte</a>
                     </div>
                 </div>
 

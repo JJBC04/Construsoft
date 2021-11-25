@@ -36,8 +36,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jjbue
  */
-@WebServlet(name = "MaterialMasCostoso", urlPatterns = {"/MaterialMasCostoso"})
-public class MaterialMasCostoso extends HttpServlet {
+@WebServlet(name = "PresupuestoMenosCosto", urlPatterns = {"/PresupuestoMenosCosto"})
+public class PresupuestoMenosCosto extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,7 +52,7 @@ public class MaterialMasCostoso extends HttpServlet {
                 Conexion cn = new Conexion();
                 con = cn.Conexion();
 
-                ps = con.prepareStatement("SELECT * FROM tblmaterial ORDER BY precio_metro_cuadrado DESC LIMIT 1");
+                ps = con.prepareStatement("SELECT tblusuario.cedula,tblusuario.nombre,tblpresupuesto.fecha,tblpresupuesto.valor_total FROM tblusuario INNER JOIN  tblpresupuesto on tblusuario.cedula = tblpresupuesto.usuario ORDER by tblpresupuesto.valor_total   ASC LIMIT 5");
                 rs = ps.executeQuery();
 
                 if (con != null) {
@@ -68,7 +68,7 @@ public class MaterialMasCostoso extends HttpServlet {
 
                         Paragraph par1 = new Paragraph();
                         Font fonttitulo = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.BLUE);
-                        par1.add(new Phrase("Reporte #2 Construsoft", fonttitulo));
+                        par1.add(new Phrase("Reporte #5 Construsoft", fonttitulo));
                         par1.setAlignment(Element.ALIGN_CENTER);
                         par1.add(new Phrase(Chunk.NEWLINE));
                         par1.add(new Phrase(Chunk.NEWLINE));
@@ -77,25 +77,28 @@ public class MaterialMasCostoso extends HttpServlet {
 
                         Paragraph par2 = new Paragraph();
                         Font fontdescrip = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC, BaseColor.DARK_GRAY);
-                        par2.add(new Phrase("Reporte el material más costoso.", fontdescrip));
+                        par2.add(new Phrase("Reporte sobre los usuarios con presupuesto con menor costo.", fontdescrip));
                         par2.setAlignment(Element.ALIGN_JUSTIFIED);
                         par2.add(new Phrase(Chunk.NEWLINE));
                         par2.add(new Phrase(Chunk.NEWLINE));
                         documento.add(par2);
 
-                        PdfPTable tabla = new PdfPTable(3);
-                        PdfPCell celda1 = new PdfPCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
-                        PdfPCell celda2 = new PdfPCell(new Paragraph("Nombre Material", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
-                        PdfPCell celda3 = new PdfPCell(new Paragraph("Precio", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
+                        PdfPTable tabla = new PdfPTable(4);
+                        PdfPCell celda1 = new PdfPCell(new Paragraph("Cedula", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
+                        PdfPCell celda2 = new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
+                        PdfPCell celda3 = new PdfPCell(new Paragraph("Fecha", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
+                        PdfPCell celda4 = new PdfPCell(new Paragraph("Valor Total", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
 
                         tabla.addCell(celda1);
                         tabla.addCell(celda2);
                         tabla.addCell(celda3);
+                        tabla.addCell(celda4);
 
                         while (rs.next()) {
                             tabla.addCell(rs.getString(1));
                             tabla.addCell(rs.getString(2));
-                            tabla.addCell(rs.getString(4)); 
+                            tabla.addCell(rs.getString(3));
+                            tabla.addCell(rs.getString(4));
                         }
 
                         documento.add(tabla);
@@ -114,7 +117,7 @@ public class MaterialMasCostoso extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
